@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "Bebas-Regular";
+    src: local("Bebas-Regular"),
+     url("../fonts/Bebas-Regular.ttf") format("truetype");
+    font-weight: bold;
+    }
+
+.sidebar {
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Bebas-Regular';
+  font-size: 2em;
+
+  .sidebar-popup{
+    display: block;
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    padding: 10px 40px 10px 200px;
+    text-align: right;
+    transform: translateX(-550px) skewX(-45deg);
+    transition: transform 1s;
+    border-right: 30px solid;
+    border-image: 
+    linear-gradient(
+      to bottom, 
+      #93C9E2, 
+      #4558A0
+    ) 1 100%;
+
+    & > span{
+        display: block;
+        transform: skewX(45deg);
+        transition: transform 0.4s;
+    }
+  }
+}
+
+.sidebar-icon-container
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sidebar-icon {
+    z-index: 3;
+  width: 50px;
+  margin: 10px;
+  filter: grayscale(0.8);
+  transition: filter 0.4s;
+  cursor: pointer;
+
+  &:hover{
+    filter: grayscale(0);
+
+    & + .sidebar-popup{
+        transform: translateX(-170px) skewX(-45deg);
+        & > span{
+            transform: skewX(45deg);
+        }
+    }
+  }
+}
+
+.sidebar-icon-active
+{
+    filter: grayscale(0);
+}
+
+
+// .sidebar-icon:hover {
+    
+
+//     & .sidebar-popup{
+//         display: block;
+//     }
+//   }
+
+.sidebar-popup{
+    display: none;
+}

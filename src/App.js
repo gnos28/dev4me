@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import TopBar from "./components/TopBar";
+import SideBar from "./components/SideBar";
+import Body from "./components/Body";
+import Footer from "./components/Footer";
+import "./App.scss";
 
 function App() {
+  document.title = "DEV4.me";
+  document.body.classList.add("fill-window");
+  document.getElementById("root").classList.add("fill-window");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="p-0 main-container">
+      <TopBar />
+      <div className="SidebarBodyFooter">
+          <SideBar />
+        <div className="bodyAndFooter bg-danger">
+          <Body />
+          <Footer />
+        </div>
+      </div>
     </div>
   );
 }

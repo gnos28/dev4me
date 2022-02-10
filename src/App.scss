@@ -1,0 +1,28 @@
+.fill-window {
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.main-container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.SidebarBodyFooter{
+  flex:1;
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+
+.bodyAndFooter{
+  width: calc(100% - 70px);
+  display: flex;
+  flex-direction: column;
+}

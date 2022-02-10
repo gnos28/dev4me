@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "Bebas-Regular";
+    src: local("Bebas-Regular"),
+     url("../fonts/Bebas-Regular.ttf") format("truetype");
+    font-weight: bold;
+    }
+
+.topbar{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-family: 'Bebas-Regular';
+    font-size: 2em;
+}
+.logo{
+    height: 80%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.path-link
+{
+    cursor: pointer;
+}
+
+.path-link:hover
+{
+    text-decoration: underline;
+}
