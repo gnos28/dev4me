@@ -1,19 +1,33 @@
 @font-face {
-    font-family: "Bebas-Regular";
-    src: local("Bebas-Regular"),
-     url("../fonts/Bebas-Regular.ttf") format("truetype");
-    font-weight: bold;
-    }
+  font-family: "Bebas-Regular";
+  src: local("Bebas-Regular"),
+    url("../fonts/Bebas-Regular.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@keyframes popup {
+  0% {
+    transform: translateX(-550px);
+  }
+
+  75% {
+    transform: translateX(-150px);
+  }
+
+  100% {
+    transform: translateX(-170px);
+  }
+}
 
 .sidebar {
   width: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: 'Bebas-Regular';
+  font-family: "Bebas-Regular";
   font-size: 2em;
 
-  .sidebar-popup{
+  .sidebar-popup {
     display: block;
     position: relative;
     z-index: 2;
@@ -23,62 +37,45 @@
     transform: translateX(-550px) skewX(-45deg);
     transition: transform 1s;
     border-right: 30px solid;
-    border-image: 
-    linear-gradient(
-      to bottom, 
-      #93C9E2, 
-      #4558A0
-    ) 1 100%;
+    border-image: linear-gradient(to bottom, #93c9e2, #4558a0) 1 100%;
 
-    & > span{
-        display: block;
-        transform: skewX(45deg);
-        transition: transform 0.4s;
+    & > span {
+      display: block;
+      transform: skewX(45deg);
+      opacity: 0;
+      transition: transform 0.4s;
+      transition: opacity 0.8s;
     }
   }
 }
 
-.sidebar-icon-container
-{
+.sidebar-icon-container {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .sidebar-icon {
-    z-index: 3;
+  z-index: 3;
   width: 50px;
   margin: 10px;
   filter: grayscale(0.8);
   transition: filter 0.4s;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     filter: grayscale(0);
 
-    & + .sidebar-popup{
-        transform: translateX(-170px) skewX(-45deg);
-        & > span{
-            transform: skewX(45deg);
-        }
+    & + .sidebar-popup {
+      transform: translateX(-170px) skewX(-45deg);
+      & > span {
+        transform: skewX(45deg);
+        opacity: 1;
+      }
     }
   }
 }
 
-.sidebar-icon-active
-{
-    filter: grayscale(0);
-}
-
-
-// .sidebar-icon:hover {
-    
-
-//     & .sidebar-popup{
-//         display: block;
-//     }
-//   }
-
-.sidebar-popup{
-    display: none;
+.sidebar-icon-active {
+  filter: grayscale(0);
 }
