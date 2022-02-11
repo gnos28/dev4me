@@ -56,8 +56,8 @@ class SideBar extends React.Component {
                 imgClass += " sidebar-icon-active"
 
               return <div className="sidebar-icon-container" key={item.id}>
-              <img src={item.img} alt={item.alt} className={imgClass} />
               <div className="sidebar-popup">
+                <img src={item.img} alt={item.alt} className={imgClass} />
                 <span>{item.text}</span>
               </div>
             </div>
