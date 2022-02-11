@@ -7,11 +7,12 @@
 
 @keyframes popup-in {
   0% {
-    transform: translateX(0px) skewX(0deg) rotateY(-180deg);
+    transform: translateX(-150px) skewX(-45deg) rotateY(0deg);
+    opacity: 0;
   }
 
   25% {
-    transform: translateX(-50px) skewX(-45deg) rotateY(-180deg);
+    opacity: 0;
   }
 
   75% {
@@ -20,45 +21,55 @@
 
   100% {
     transform: translateX(-50px) skewX(-45deg) rotateY(0deg);
+    opacity: 1;
   }
 }
-
-@keyframes popup-in-icon { //translateX(0px) skewX(0deg) rotateY(-180deg);
-    0% {
-        transform: translateX(0px) skewX(0deg) rotateY(-180deg);
-      }
-    
-      25% {
-        transform: translateX(50px) skewX(45deg) rotateY(-180deg);
-      }
-    
-      75% {
-        transform: translateX(50px) skewX(45deg) rotateY(-180deg);
-      }
-    
-      100% {
-        transform: translateX(50px) skewX(45deg) rotateY(-180deg);
-      }
-  }
 
 @keyframes popup-out {
     0% {
         transform: translateX(-50px) skewX(-45deg) rotateY(0deg);
+        opacity: 1;
+    }
+
+    25% {
+        transform: translateX(-50px) skewX(-45deg) rotateY(0deg);
     }
   
     75% {
-      transform: translateX(-50px) skewX(0deg) rotateY(0deg);
+        opacity: 0;
     }
   
     100% {
-      transform: translateX(0px) skewX(0deg) rotateY(-180deg);
+        transform: translateX(-150px) skewX(-45deg) rotateY(0deg);
+        opacity: 0;
     }
   }
+
+@keyframes popup-in-icon {
+  //translateX(0px) skewX(0deg) rotateY(-180deg);
+  0% {
+    transform: translateX(0px) skewX(0deg) rotateY(-180deg);
+  }
+
+  25% {
+    transform: translateX(50px) skewX(45deg) rotateY(-180deg);
+  }
+
+  75% {
+    transform: translateX(50px) skewX(45deg) rotateY(-180deg);
+  }
+
+  100% {
+    transform: translateX(50px) skewX(45deg) rotateY(-180deg);
+  }
+}
+
 
 .sidebar {
   width: 70px;
   display: flex;
   flex-direction: column;
+  gap:5px;
   justify-content: center;
   font-family: "Bebas-Regular";
   font-size: 2em;
@@ -68,10 +79,10 @@
     position: relative;
     z-index: 2;
     background-color: rgb(255, 255, 255);
-    padding: 10px 40px 10px 150px;
+    padding: 10px 40px 10px 70px;
     text-align: right;
     transform-origin: 35px center;
-    transform: translateX(0px) skewX(0deg) rotateY(-180deg);
+    transform: translateX(-150px) skewX(0deg) rotateY(-180deg);
     // animation: popup-out 1000ms ease-in-out;
     // animation-fill-mode: forwards;
     // animation-play-state: paused;
@@ -93,34 +104,45 @@
       //transition: opacity 0.8s;
     }
 
-    & .sidebar-icon {
-      position: absolute;
-      left: 0px;
-      top: 0px;
-        // transform-origin: center center;
-      transform: translateX(0px) skewX(0deg) rotateY(-180deg);
-      z-index: 3;
-      width: 50px;
-      margin: 10px;
-      filter: grayscale(0.8);
-      transition: filter 0.4s;
-    }
+    // &:hover {
+    //   //transform: translateX(-50px) skewX(-45deg);
+    //   animation: popup-in 600ms ease-in-out;
+    //   animation-fill-mode: both;
+    //   animation-direction: alternate;
 
-    &:hover {
-      //transform: translateX(-50px) skewX(-45deg);
-      animation: popup-in 600ms ease-in-out;
-      animation-fill-mode: both;
-      animation-direction: alternate;
-
-      & .sidebar-icon {
-        //transform: translateX(50px) skewX(45deg);
-        animation: popup-in-icon 600ms ease-in-out;
-      animation-fill-mode: both;
-      animation-direction: alternate;
-        filter: grayscale(0);
-      }
-    }
+    //   & .sidebar-icon {
+    //     //transform: translateX(50px) skewX(45deg);
+    //     animation: popup-in-icon 600ms ease-in-out;
+    //   animation-fill-mode: both;
+    //   animation-direction: alternate;
+    //     filter: grayscale(0);
+    //   }
   }
+
+  .sidebar-popup-hover {
+    animation: popup-in 600ms ease-in-out;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+  }
+
+  .sidebar-popup-leave {
+    animation: popup-out 600ms ease-in-out;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+  }
+}
+
+.sidebar-icon {
+  // position: absolute;
+  // left: 0px;
+  // top: 0px;
+  // transform-origin: center center;
+  transform: translateX(0px) skewX(0deg) rotateY(-180deg);
+  z-index: 3;
+  width: 50px;
+  margin: 10px;
+  filter: grayscale(0.8);
+  transition: filter 0.4s;
 }
 
 .sidebar-icon-container {
@@ -129,6 +151,7 @@
   align-items: center;
 }
 
-.sidebar-icon-active {
+.sidebar-icon-active,
+.sidebar-icon-hover {
   filter: grayscale(0);
 }
