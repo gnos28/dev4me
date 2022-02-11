@@ -1,79 +1,56 @@
 import React from "react";
 import "./SideBar.scss";
-import Home from "../img/home.svg";
-import Mail from "../img/mail.svg";
-import People from "../img/people.svg";
-import Wheel from "../img/wheel.svg";
-import Window from "../img/window.svg";
-
-const menuItem = [
-  {
-    id: "home",
-    img: Home,
-    alt: "home",
-    text: "Accueil",
-  },
-  {
-    id: "real",
-    img: Window,
-    alt: "realisations",
-    text: "Realisations",
-  },
-  {
-    id: "tech",
-    img: Wheel,
-    alt: "technologies",
-    text: "Technologies",
-  },
-  {
-    id: "who",
-    img: People,
-    alt: "qui sommes nous ?",
-    text: "L'equipe",
-  },
-  {
-    id: "mail",
-    img: Mail,
-    alt: "contact",
-    text: "Contact",
-  },
-];
+import {menuItems} from "../data/menuItems";
 
 class SideBar extends React.Component {
   constructor(props) {
     super(props);
-    this.path = "home";
-    this.state = { mouseEnter: [], mouseLeave: [] };
+    this.path = this.props.path;
+    this.state = { mouseEnter: [], mouseLeave: [], mouseClick: [] };
+    this.menuChange = props.menuChange;
   }
 
   handleMouseEnter = (id) => {
     // console.log("mouseEnter", id)
-    this.setState({ mouseEnter: [id]});
-    console.log(this.state.mouseEnter)
+    this.setState({ mouseEnter: [id] });
   };
 
   handleMouseLeave = (id) => {
     //   console.log("mouseLeave", id)
     this.setState((state, props) => {
-        return { mouseEnter: state.mouseEnter.filter(val => val !== id) }
-    })
+      return { mouseEnter: state.mouseEnter.filter((val) => val !== id) };
+    });
     this.setState((state, props) => {
-        return { mouseLeave: [...state.mouseLeave, id] }
-    })
+      return { mouseLeave: [...state.mouseLeave, id] };
+    });
   };
 
-  handleAnimationEnd = (id) => {
-      if(this.state.mouseLeave.includes(id))
-      this.setState((state, props) => {
-        return { mouseLeave: state.mouseLeave.filter(val => val !== id) }
-      })
-  }
+  handleAnimationEnd = (id, type) => {
+    if (type === "hover")
+      if (this.state.mouseLeave.includes(id))
+        this.setState((state, props) => {
+          return { mouseLeave: state.mouseLeave.filter((val) => val !== id) };
+        });
+
+    if (type === "click")
+      if (this.state.mouseClick.includes(id))
+        this.setState((state, props) => {
+          return { mouseClick: state.mouseClick.filter((val) => val !== id) };
+        });
+  };
+
+  handleClick = (id) => {
+    this.setState((state, props) => {
+      return { mouseClick: [id] };
+    });
+    this.menuChange(id);
+  };
 
   render() {
-    //   console.log("render", this.state.mouseEnter)
+    this.path = this.props.path;
     return (
       <div className="sidebar">
-        {menuItem.map((item) => {
+        {menuItems.map((item) => {
           let imgClass = "sidebar-icon";
           let divClass = "sidebar-popup";
 
@@ -87,6 +64,8 @@ class SideBar extends React.Component {
             imgClass += " sidebar-icon-leave";
             divClass += " sidebar-popup-leave";
           }
+          if (this.state.mouseClick.includes(item.id))
+            imgClass += " sidebar-icon-click";
 
           return (
             <div
@@ -94,10 +73,18 @@ class SideBar extends React.Component {
               key={item.id}
               onMouseEnter={() => this.handleMouseEnter(item.id)}
               onMouseLeave={() => this.handleMouseLeave(item.id)}
+              onClick={() => this.handleClick(item.id)}
             >
-              <img src={item.img} alt={item.alt} className={imgClass} />
-              <div className={divClass}
-              onAnimationEnd={() => this.handleAnimationEnd(item.id)}>
+              <img
+                src={item.img}
+                alt={item.alt}
+                className={imgClass}
+                onAnimationEnd={() => this.handleAnimationEnd(item.id, "click")}
+              />
+              <div
+                className={divClass}
+                onAnimationEnd={() => this.handleAnimationEnd(item.id, "hover")}
+              >
                 <span>{item.text}</span>
               </div>
             </div>

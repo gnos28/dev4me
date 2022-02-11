@@ -31,11 +31,12 @@
         opacity: 1;
     }
 
-    25% {
+    40% {
         transform: translateX(-50px) skewX(-45deg) rotateY(0deg);
+        opacity: 0.8;
     }
   
-    75% {
+    90% {
         opacity: 0;
     }
   
@@ -45,25 +46,15 @@
     }
   }
 
-@keyframes popup-in-icon {
-  //translateX(0px) skewX(0deg) rotateY(-180deg);
-  0% {
-    transform: translateX(0px) skewX(0deg) rotateY(-180deg);
-  }
+@keyframes icon-click {
+    0% {
+        transform: scale(100%)
+    }
 
-  25% {
-    transform: translateX(50px) skewX(45deg) rotateY(-180deg);
-  }
-
-  75% {
-    transform: translateX(50px) skewX(45deg) rotateY(-180deg);
-  }
-
-  100% {
-    transform: translateX(50px) skewX(45deg) rotateY(-180deg);
-  }
+    100%{
+        transform: scale(150%)
+    }
 }
-
 
 .sidebar {
   width: 70px;
@@ -83,40 +74,17 @@
     text-align: right;
     transform-origin: 35px center;
     transform: translateX(-150px) skewX(0deg) rotateY(-180deg);
-    // animation: popup-out 1000ms ease-in-out;
-    // animation-fill-mode: forwards;
-    // animation-play-state: paused;
-    //transition: transform 1s;
-
-    // animation-play-state: paused;
     border-right: 30px solid;
     border-image: linear-gradient(to bottom, #93c9e2, #4558a0) 1 100%;
     cursor: pointer;
 
     & > span {
       position: relative;
-
+      user-select: none;
       display: block;
       z-index: 5;
       transform: skewX(45deg);
-      //opacity: 0;
-      //transition: transform 0.4s;
-      //transition: opacity 0.8s;
     }
-
-    // &:hover {
-    //   //transform: translateX(-50px) skewX(-45deg);
-    //   animation: popup-in 600ms ease-in-out;
-    //   animation-fill-mode: both;
-    //   animation-direction: alternate;
-
-    //   & .sidebar-icon {
-    //     //transform: translateX(50px) skewX(45deg);
-    //     animation: popup-in-icon 600ms ease-in-out;
-    //   animation-fill-mode: both;
-    //   animation-direction: alternate;
-    //     filter: grayscale(0);
-    //   }
   }
 
   .sidebar-popup-hover {
@@ -133,16 +101,18 @@
 }
 
 .sidebar-icon {
-  // position: absolute;
-  // left: 0px;
-  // top: 0px;
-  // transform-origin: center center;
   transform: translateX(0px) skewX(0deg) rotateY(-180deg);
   z-index: 3;
   width: 50px;
   margin: 10px;
   filter: grayscale(0.8);
   transition: filter 0.4s;
+  cursor: pointer;
+}
+
+.sidebar-icon-click
+{
+    animation: icon-click 200ms ease-in-out;
 }
 
 .sidebar-icon-container {
