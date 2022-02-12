@@ -20,9 +20,14 @@
   align-items: stretch;
 }
 
-
 .bodyAndFooter{
-  width: calc(100% - 70px);
+  width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .bodyAndFooter{
+    width: calc(100% - 70px);
+  }
 }

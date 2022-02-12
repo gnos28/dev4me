@@ -1,43 +1,23 @@
 import React from "react";
-import {menuItems} from "../data/menuItems";
+import Path from "./Path"
+import SideBar from "./SideBar";
 import Logo from "../img/logo.svg";
 import "./TopBar.scss";
-
-class Path extends React.Component {
-  constructor(props) {
-    super(props);
-    this.path = props.path;
-  }
-  render() {
-    this.path = this.props.path;
-
-    let textPath = ""
-    menuItems.forEach((item) => {
-        if(item.id === this.path)
-            textPath = item.text
-    })
-
-    return (
-      <div>
-        <span className="path-link">DEV4ME</span> &gt;{" "}
-        <span className="path-link">{textPath}</span>
-      </div>
-    );
-  }
-}
 
 class TopBar extends React.Component {
   constructor(props) {
     super(props);
     this.path = props.path;
+    this.menuChange = props.menuChange;
   }
 
   render() {
     this.path = this.props.path;
     return (
       <div className="topbar">
-        <img src={Logo} alt="logo" className="logo" />
-        <Path path={this.path} />
+        <img src={Logo} alt="logo" className="logo" draggable="false" onClick={() => this.menuChange("")}/>
+        <Path path={this.path}  menuChange={this.menuChange} position="topbar"/>
+        <SideBar menuChange={this.menuChange} path={this.path} position="topbar"/>
       </div>
     );
   }

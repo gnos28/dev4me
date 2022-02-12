@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      path:"home"
+      path:""
     }
 
     document.title = "DEV4.me";
@@ -28,11 +28,12 @@ class App extends React.Component {
   {
     return (
       <div className="p-0 main-container">
-        <TopBar path={this.state.path}/>
+        <TopBar menuChange={this.menuChange} path={this.state.path} position="topbar"/>
         <div className="SidebarBodyFooter">
-            <SideBar menuChange={this.menuChange} path={this.state.path}/>
+        
+            <SideBar menuChange={this.menuChange} path={this.state.path} position="sidebar"/>
           <div className="bodyAndFooter bg-danger">
-            <Body />
+            <Body path={this.state.path} menuChange={this.menuChange}/>
             <Footer />
           </div>
         </div>

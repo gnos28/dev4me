@@ -5,9 +5,10 @@ import {menuItems} from "../data/menuItems";
 class SideBar extends React.Component {
   constructor(props) {
     super(props);
-    this.path = this.props.path;
+    this.path = props.path;
     this.state = { mouseEnter: [], mouseLeave: [], mouseClick: [] };
     this.menuChange = props.menuChange;
+    this.position = props.position;
   }
 
   handleMouseEnter = (id) => {
@@ -48,8 +49,15 @@ class SideBar extends React.Component {
 
   render() {
     this.path = this.props.path;
+
+    let sidebarClass = ""
+    if(this.position === "sidebar")
+        sidebarClass += " sidebar-sidebar"
+    if(this.position === "topbar")
+        sidebarClass += " sidebar-topbar"
+
     return (
-      <div className="sidebar">
+      <div className={sidebarClass}>
         {menuItems.map((item) => {
           let imgClass = "sidebar-icon";
           let divClass = "sidebar-popup";
@@ -80,6 +88,7 @@ class SideBar extends React.Component {
                 alt={item.alt}
                 className={imgClass}
                 onAnimationEnd={() => this.handleAnimationEnd(item.id, "click")}
+                draggable="false"
               />
               <div
                 className={divClass}
