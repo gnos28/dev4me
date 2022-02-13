@@ -32,7 +32,7 @@ class App extends React.Component {
         <div className="SidebarBodyFooter">
         
             <SideBar menuChange={this.menuChange} path={this.state.path} position="sidebar"/>
-          <div className="bodyAndFooter bg-danger">
+          <div className="bodyAndFooter">
             <Body path={this.state.path} menuChange={this.menuChange}/>
             <Footer />
           </div>

@@ -52,9 +52,9 @@ class SideBar extends React.Component {
 
     let sidebarClass = ""
     if(this.position === "sidebar")
-        sidebarClass += " sidebar-sidebar"
+        sidebarClass = "sidebar-sidebar"
     if(this.position === "topbar")
-        sidebarClass += " sidebar-topbar"
+        sidebarClass = "sidebar-topbar"
 
     return (
       <div className={sidebarClass}>

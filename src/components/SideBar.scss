@@ -87,19 +87,10 @@
   align-items: center;
 }
 
-.sidebar-icon-active,
-.sidebar-icon-hover {
-  filter: grayscale(0);
-}
-
 @media screen and (min-width: 768px) {
   .sidebar-icon {
-    z-index: 3;
     width: 50px;
     margin: 10px;
-    filter: grayscale(0.8);
-    transition: filter 0.4s;
-    cursor: pointer;
   }
 
   .sidebar-topbar {
@@ -108,6 +99,7 @@
 
   .sidebar-sidebar {
     width: 70px;
+    height: calc(100vh - 50px);
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -148,5 +140,11 @@
       animation-fill-mode: both;
       animation-direction: alternate;
     }
+    
   }
+}
+
+.sidebar-icon-active,
+.sidebar-icon-hover {
+  filter: grayscale(0);
 }

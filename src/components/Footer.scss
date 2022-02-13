@@ -1,9 +1,31 @@
-.footer{
-    height: 30px;
-    flex: none;
-    background-color: #93C9E2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.8em;
+.footer {
+  height: 30px;
+  flex: none;
+  background-color: #93c9e2;
+  display: flex;
+  gap:10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+
+  & > a{
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+
+      &:hover{
+        text-decoration: underline;
+      }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    opacity: 0.7;
+    transition: opacity 0.5s;
+  }
+
+  .footer:hover {
+    opacity: 1;
+  }
 }

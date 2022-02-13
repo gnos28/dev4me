@@ -1,12 +1,40 @@
-.body
-{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #EEE;
+.body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
 }
 
-.logoBody{
-    height: 200px;
+.scrollingBody {
+  margin-top: 28px;
+  padding: 0 20px;
+  height: calc(100vh - 108px);
+  overflow: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .scrollingBody {
+    margin-top: 0px;
+    height: calc(100vh - 80px);
+    padding: 0 100px;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #93c9e2;
+    border: 1px solid #678ac6;
+    box-shadow: 2px 2px 15px -2px rgba(69, 88, 160, 0.78);
+    //border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #678ac6;
+  }
 }
