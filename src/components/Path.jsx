@@ -27,7 +27,7 @@ class Path extends React.Component {
           DEV4ME
         </span>
         {this.path ? (
-          <div>
+          <React.Fragment>
             &nbsp;&gt;&nbsp;
             <span
               className="path-link"
@@ -35,7 +35,7 @@ class Path extends React.Component {
             >
               {textPath}
             </span>
-          </div>
+          </React.Fragment>
         ) : null}
       </div>
     );

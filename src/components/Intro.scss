@@ -28,12 +28,22 @@
     }
   }  
 
-.logoBody {
-  height: 200px;
-  margin: 20px 0px;
-  cursor: pointer;
-  user-select: none;
-}
+
+  .logoBody {
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    width: 20%;
+    cursor: pointer;
+    user-select: none;
+  }
+
+// .logoBody {
+//   height: 200px;
+//   margin: 20px 0px;
+//   cursor: pointer;
+//   user-select: none;
+// }
 
 .intro{
     height: calc(100vh - 80px);

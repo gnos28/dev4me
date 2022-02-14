@@ -9,16 +9,16 @@ class Body extends React.Component {
     super(props);
     this.path = props.path;
     this.menuChange = props.menuChange;
+    this.previousPath = "";
+    this.state = { bodyBlurAnimationEnd: false };
   }
 
   getBodyContent(path) {
     switch (path) {
       case "":
-        return (
-            <Intro menuChange={this.menuChange}/>
-        );
+        return <Intro menuChange={this.menuChange} />;
       case "home":
-        return <Home/>;
+        return <Home />;
       default:
         return (
           <div className="scrollingBody">
@@ -132,10 +132,36 @@ class Body extends React.Component {
     }
   }
 
+  handleBodyBlurAnimationEnd = () => {
+    console.log("*************** handleBodyBlurAnimationEnd");
+    this.setState({
+      bodyBlurAnimationEnd: true,
+    });
+  };
+
+  bodyBlur = () => {
+    if (this.previousPath !== this.path || !this.state.bodyBlurAnimationEnd) {
+        if(this.state.bodyBlurAnimationEnd)
+        this.setState({
+            bodyBlurAnimationEnd: false,
+        });
+      return (
+        <div
+          className="bodyBlur"
+          onAnimationEnd={this.handleBodyBlurAnimationEnd}
+        ></div>
+      );
+    } else return null;
+  };
+
   render() {
     this.path = this.props.path;
+    let bodyBlur_ = this.bodyBlur();
+    console.log("bodyBlur_", bodyBlur_);
+    this.previousPath = this.path;
     return (
       <div className="body">
+        {bodyBlur_}
         <Path position="body" path={this.path} menuChange={this.menuChange} />
         {this.getBodyContent(this.path)}
       </div>

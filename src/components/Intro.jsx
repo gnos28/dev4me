@@ -33,11 +33,11 @@ class Intro extends React.Component {
       this.totalText.push(this.state.text);
 
       if (this.codeIndex < introCode.length) {
-        let speed = 30;
-        let linePause = 2000;
+        let speed = 20;
+        let linePause = 1500;
         if (this.codeIndex > 1) speed = 1;
         if (this.codeIndex > 2) linePause = 2;
-        if (this.codeIndex === introCode.length - 1) speed = 30;
+        if (this.codeIndex === introCode.length - 1) speed = 20;
 
         this.setState(
           {

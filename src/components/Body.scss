@@ -1,9 +1,31 @@
+@keyframes bodyFade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .body {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #eee;
+  box-shadow: inset 1px 1px 6px 1px rgba(100,100,100,0.29);
+}
+
+.bodyBlur {
+  position: absolute;
+  z-index: 10;
+  height: calc(100% - 80px);
+  width: calc(100% - 70px);
+  background-color: #EEE;
+  opacity: 1;
+  animation: bodyFade 0.7s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 
 .scrollingBody {

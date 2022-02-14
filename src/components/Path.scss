@@ -6,12 +6,20 @@
   }
 
 .path-link {
+    padding: 0 5px;
+    margin: 0 -5px;
   cursor: pointer;
   font-family: "Bebas-Regular";
-}
 
-.path-link:hover {
-  text-decoration: underline;
+    &:hover {
+        text-decoration: underline;
+      //   background-color: #e2e8ff;
+        box-shadow: inset 3px 3px 7px 1px #dadada;
+      }
+
+    &:active {
+        box-shadow: inset 3px 3px 7px 1px #9b9b9b;
+    }
 }
 
 .path-container-topbar {
@@ -32,6 +40,7 @@
   .path-container-topbar {
     display: flex;
     flex-direction: row;
+    align-items: stretch;
   }
 
   .path-container-body {
