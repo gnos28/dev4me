@@ -15,7 +15,7 @@ class Body extends React.Component {
     switch (path) {
       case "":
         return (
-            <Intro/>
+            <Intro menuChange={this.menuChange}/>
         );
       case "home":
         return <Home/>;

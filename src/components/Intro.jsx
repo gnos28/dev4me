@@ -7,6 +7,7 @@ class Intro extends React.Component {
   constructor(props) {
     super(props);
     this.state = { text: "", animationEnd: false };
+    this.menuChange = props.menuChange;
     this.interval = null;
     this.codeIndex = 0;
     this.totalText = [];
@@ -100,12 +101,13 @@ class Intro extends React.Component {
           </div>
         </div>
         <div className={logoClass}>
-          <img
+            {this.state.animationEnd?<img
             src={LogoFull}
             alt="logo"
             className="logoBody"
             draggable="false"
-          />
+            onClick={() => this.menuChange("home")}
+          />:null}
         </div>
       </div>
     );

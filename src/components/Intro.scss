@@ -31,10 +31,12 @@
 .logoBody {
   height: 200px;
   margin: 20px 0px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .intro{
-    height: calc(100vh - 108px);
+    height: calc(100vh - 80px);
     width: 100%;
 }
 
