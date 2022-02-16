@@ -1,4 +1,5 @@
 $animation-duration: 4s;
+$animation-title-duration: 1s;
 
 @font-face {
   font-family: "Bebas-Regular";
@@ -19,6 +20,74 @@ $animation-duration: 4s;
   }
   100% {
     transform: translateX(0%);
+  }
+}
+
+@keyframes leftArrowDiv-leftSide-animTitle {
+  0% {
+    transform: translateX(0%) scale(100%);
+    top: 25%;
+  }
+  100%{
+    transform: translateX(356%) scale(50%);
+    top: 0%;
+  }
+}
+
+@keyframes rightArrowDiv-leftSide-animTitle {
+  0% {
+    transform: translateX(0%)  scale(100%);
+    top: 25%;
+  }
+  100%{
+    transform: translateX(400%)  scale(50%);
+    top: 0%;
+  }
+}
+
+@keyframes activity-leftSide-animTitle {
+  0%{
+    transform: scale(1) translateX(0%);
+  }
+  10%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(2.3) translateX(-32%);
+  }
+}
+
+@keyframes leftArrowDiv-rightSide-animTitle {
+  0% {
+    transform: translateX(0%) scale(100%);
+    top: 25%;
+  }
+  100%{
+    transform: translateX(-400%) scale(50%);
+    top: 0%;
+  }
+}
+
+@keyframes rightArrowDiv-rightSide-animTitle {
+  0% {
+    transform: translateX(0%)  scale(100%);
+    top: 25%;
+  }
+  100%{
+    transform: translateX(-356%)  scale(50%);
+    top: 0%;
+  }
+}
+
+@keyframes activity-rightSide-animTitle {
+  0%{
+    transform: scale(1) translateX(0%);
+  }
+  10%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(2.3) translateX(32%);
   }
 }
 
@@ -148,6 +217,15 @@ $animation-duration: 4s;
     }
 }
 
+@keyframes fadeOut {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
 .homeContainer {
   position: relative;
   height: calc(100vh - 80px);
@@ -171,11 +249,6 @@ $animation-duration: 4s;
   position: relative;
   user-select: none;
   width: 7.543vw;
-  
-//   &Hover{
-//     transform: scale(100%);
-//     animation: arrowHover 1s;
-// }
 }
 
 .leftArrow-leftSide {
@@ -215,6 +288,17 @@ $animation-duration: 4s;
       animation-iteration-count: 1;
       animation-fill-mode: both;
     }
+
+    &-animTitle {
+      animation: leftArrowDiv-leftSide-animTitle $animation-title-duration;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+    
+    &-Title {
+      transform: translateX(356%) scale(50%);
+      top: 0%;
+    }
   }
 
   &-rightSide {
@@ -226,6 +310,17 @@ $animation-duration: 4s;
       animation: leftArrowDiv-rightSide-animation $animation-duration;
       animation-iteration-count: 1;
       animation-fill-mode: both;
+    }
+    
+    &-animTitle {
+      animation: leftArrowDiv-rightSide-animTitle $animation-title-duration;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+    
+    &-Title {
+      transform: translateX(-400%) scale(50%);
+      top: 0%;
     }
   }
 }
@@ -243,6 +338,17 @@ $animation-duration: 4s;
       animation-iteration-count: 1;
       animation-fill-mode: both;
     }
+
+    &-animTitle {
+      animation: rightArrowDiv-leftSide-animTitle $animation-title-duration;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+    
+    &-Title {
+      transform: translateX(400%)  scale(50%);
+      top: 0%;
+    }
   }
   &-rightSide {
     right: 10%;
@@ -252,6 +358,16 @@ $animation-duration: 4s;
       animation: rightArrowDiv-rightSide-animation $animation-duration;
       animation-iteration-count: 1;
       animation-fill-mode: both;
+    }
+    
+    &-animTitle {
+      animation: rightArrowDiv-rightSide-animTitle $animation-title-duration;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+    &-Title {
+      transform: translateX(-356%)  scale(50%);
+      top: 0%;
     }
   }
 }
@@ -274,11 +390,33 @@ $animation-duration: 4s;
   &-leftSide {
     right: 0%;
     margin-right: 50%;
+
+    &-animTitle
+    {
+      animation: activity-leftSide-animTitle $animation-title-duration;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+    &-Title
+    {
+      transform: scale(2.3) translateX(-32%);
+    }
   }
 
   &-rightSide {
     left: 0%;
     margin-left: 50%;
+    
+    &-animTitle
+    {
+      animation: activity-rightSide-animTitle $animation-title-duration;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+    &-Title
+    {
+      transform: scale(2.3) translateX(32%);
+    }
   }
 
   span {
@@ -391,4 +529,11 @@ $animation-duration: 4s;
         background-color: #678AC6;
     border-color: #678AC6;    
     }
+}
+
+.fadeOut {
+  opacity: 0;
+  animation: fadeOut 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }

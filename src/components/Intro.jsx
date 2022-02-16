@@ -6,11 +6,18 @@ import "./Intro.scss";
 class Intro extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { text: "", animationEnd: false };
+    this.handleHomeAnimationEnd = props.handleHomeAnimationEnd;
+    this.homeAnimationPlayedOnce = props.homeAnimationPlayedOnce;
     this.menuChange = props.menuChange;
+    
+    this.state = { text: "", animationEnd: false };
+
     this.interval = null;
     this.codeIndex = 0;
     this.totalText = [];
+
+    if(this.homeAnimationPlayedOnce)
+        this.handleHomeAnimationEnd(false)
   }
 
   typeWriter = (txt = introCode[this.codeIndex]) => {

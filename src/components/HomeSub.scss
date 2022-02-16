@@ -1,0 +1,22 @@
+.titleDiv {
+  margin-top: 2vw;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    position: relative;
+    display: block;
+    width: 11.5vw;
+    text-align: center;
+    font-family: "Bebas-Regular";
+    font-size: 1.65vw;
+    user-select: none;
+  }
+}
+
+.arrowSub {
+  position: relative;
+  user-select: none;
+  width: 3.7715vw;
+  z-index: 4;
+}

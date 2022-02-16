@@ -58,7 +58,7 @@ class SideBar extends React.Component {
 
     return (
       <div className={sidebarClass}>
-        {menuItems.map((item) => {
+        {menuItems.filter(item => item.idLvl2 === "").map((item) => {
           let imgClass = "sidebar-icon";
           let divClass = "sidebar-popup";
 
