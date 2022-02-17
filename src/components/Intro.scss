@@ -1,8 +1,7 @@
 @font-face {
-    font-family: "Consolas_";
-    src: local("Consolas_"),
-      url("../fonts/consolas-bold.ttf") format("truetype");
-  }
+  font-family: "Consolas_";
+  src: local("Consolas_"), url("../fonts/consolas-bold.ttf") format("truetype");
+}
 
 @keyframes blink {
   0% {
@@ -20,23 +19,29 @@
 }
 
 @keyframes show {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0.9;
-    }
-  }  
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
 
-
+.logoBody {
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  width: 60%;
+  cursor: pointer;
+  user-select: none;
+}
+@media screen and (min-width: 768px) {
   .logoBody {
-    position: absolute;
     top: 25%;
     left: 40%;
     width: 20%;
-    cursor: pointer;
-    user-select: none;
   }
+}
 
 // .logoBody {
 //   height: 200px;
@@ -45,53 +50,61 @@
 //   user-select: none;
 // }
 
-.intro{
+.intro {
+  position: relative;
+  top: 28px;
+  height: calc(100% - 28px);
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .intro {
+    top:0;
     height: calc(100vh - 80px);
-    width: 100%;
+  }
 }
 
-.logoContainer{
-    position:relative;
-    background-color: #EEE;
-    height: 100%;
-    z-index: 1;
-    opacity: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.logoContainer {
+  position: relative;
+  background-color: #eee;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.logoContainerShow{
-    animation: show 2s ease-in;
-    animation-fill-mode: both;
+.logoContainerShow {
+  animation: show 2s ease-in;
+  animation-fill-mode: both;
 }
 
 .matrix {
-    position: fixed;
-    z-index: 0;
-    font-family: "Consolas_";
-    user-select: none;
-    color: #4558a0;
-    height: auto;
-    min-height: calc(100vh - 108px);
-    left:0px;
-    bottom: 30px;
-    white-space: pre-wrap;
+  position: fixed;
+  z-index: 0;
+  font-family: "Consolas_";
+  user-select: none;
+  color: #4558a0;
+  height: auto;
+  min-height: calc(100% - 108px);
+  left: 0px;
+  bottom: 30px;
+  white-space: pre-wrap;
 }
 
 @media screen and (min-width: 768px) {
-    .matrix {
-        min-height: calc(100vh - 80px);
-        left:70px;
-    }
+  .matrix {
+    min-height: calc(100vh - 80px);
+    left: 70px;
+  }
 
-    .intro{
-        height: calc(100vh - 80px);
-    }
+  .intro {
+    height: calc(100vh - 80px);
+  }
 }
 
-.redLine{
-    color:red;
+.redLine {
+  color: red;
 }
 
 .blinking {

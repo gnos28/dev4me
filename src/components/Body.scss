@@ -12,12 +12,19 @@
 }
 
 .body {
+  position: relative;
   height: 100%;
+  display: block;
+  background-color: #eee;
+  box-shadow: inset 1px 1px 6px 1px rgba(100,100,100,0.29);
+}
+
+@media screen and (min-width: 768px) {
+  .body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #eee;
-  box-shadow: inset 1px 1px 6px 1px rgba(100,100,100,0.29);
+  }
 }
 
 .bodyBlur {

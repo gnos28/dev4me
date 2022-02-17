@@ -1,5 +1,5 @@
 $animation-duration: 4s;
-$animation-title-duration: 1s;
+$animation-title-duration: 0.6s;
 
 @font-face {
   font-family: "Bebas-Regular";
@@ -28,7 +28,7 @@ $animation-title-duration: 1s;
     transform: translateX(0%) scale(100%);
     top: 25%;
   }
-  100%{
+  100% {
     transform: translateX(356%) scale(50%);
     top: 0%;
   }
@@ -36,23 +36,23 @@ $animation-title-duration: 1s;
 
 @keyframes rightArrowDiv-leftSide-animTitle {
   0% {
-    transform: translateX(0%)  scale(100%);
+    transform: translateX(0%) scale(100%);
     top: 25%;
   }
-  100%{
-    transform: translateX(400%)  scale(50%);
+  100% {
+    transform: translateX(400%) scale(50%);
     top: 0%;
   }
 }
 
 @keyframes activity-leftSide-animTitle {
-  0%{
+  0% {
     transform: scale(1) translateX(0%);
   }
-  10%{
+  10% {
     transform: scale(1);
   }
-  100%{
+  100% {
     transform: scale(2.3) translateX(-32%);
   }
 }
@@ -62,7 +62,7 @@ $animation-title-duration: 1s;
     transform: translateX(0%) scale(100%);
     top: 25%;
   }
-  100%{
+  100% {
     transform: translateX(-400%) scale(50%);
     top: 0%;
   }
@@ -70,37 +70,37 @@ $animation-title-duration: 1s;
 
 @keyframes rightArrowDiv-rightSide-animTitle {
   0% {
-    transform: translateX(0%)  scale(100%);
+    transform: translateX(0%) scale(100%);
     top: 25%;
   }
-  100%{
-    transform: translateX(-356%)  scale(50%);
+  100% {
+    transform: translateX(-356%) scale(50%);
     top: 0%;
   }
 }
 
 @keyframes activity-rightSide-animTitle {
-  0%{
+  0% {
     transform: scale(1) translateX(0%);
   }
-  10%{
+  10% {
     transform: scale(1);
   }
-  100%{
+  100% {
     transform: scale(2.3) translateX(32%);
   }
 }
 
 @keyframes rightArrowDiv-leftSide-animation {
   0% {
-      opacity: 0;
+    opacity: 0;
     transform: translateX(178%);
   }
   30% {
     opacity: 0;
     transform: translateX(-204%);
   }
-  40%{
+  40% {
     opacity: 0;
   }
   60% {
@@ -182,7 +182,7 @@ $animation-title-duration: 1s;
     opacity: 0;
     transform: translateX(204%);
   }
-  40%{
+  40% {
     opacity: 0;
   }
   60% {
@@ -195,48 +195,88 @@ $animation-title-duration: 1s;
 }
 
 @keyframes activityHover {
-    0%{
-        transform: scale(100%);
-    }
-    50%{
-        transform: scale(110%);
-    }
-    100%{
-        transform: scale(100%);
-    }
+  0% {
+    transform: scale(100%);
+  }
+  50% {
+    transform: scale(110%);
+  }
+  100% {
+    transform: scale(100%);
+  }
 }
 @keyframes arrowHover {
-    0%{
-        transform: scale(100%);
-    }
-    50%{
-        transform: scale(110%);
-    }
-    100%{
-        transform: scale(100%);
-    }
+  0% {
+    transform: scale(100%);
+  }
+  50% {
+    transform: scale(110%);
+  }
+  100% {
+    transform: scale(100%);
+  }
 }
 
 @keyframes fadeOut {
-  0%{
+  0% {
     opacity: 1;
   }
-  100%{
+  100% {
     opacity: 0;
   }
 }
 
-.homeContainer {
-  position: relative;
-  height: calc(100vh - 80px);
-  width: 100%;
+@media screen and (max-width: 767px) {
+  .homeContainer {
+    position: relative;
+    height: calc(100% - 28px);
+    top:28px;
+    width: 100%;
+  }
 }
 
-.logoDiv {
-  position: absolute;
-  top: 25%;
-  left: 40%;
-  width: 20%;
+@media screen and (min-width: 768px) {
+  .homeContainer {
+    position: relative;
+    height: calc(100vh - 80px);
+    width: 100%;
+  }
+}
+
+@keyframes logoDivTranslateY {
+  0% {
+    top: 25%;
+  }
+  30% {
+    top: 12%;
+  }
+  100% {
+    top: 12%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .logoDiv {
+    position: absolute;
+    top: 12%;
+    left: 20%;
+    width: 60%;
+
+    &-animation {
+      animation: logoDivTranslateY $animation-duration;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logoDiv {
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    width: 20%;
+  }
 }
 
 .logoImgHome {
@@ -248,7 +288,12 @@ $animation-title-duration: 1s;
 .arrow {
   position: relative;
   user-select: none;
-  width: 7.543vw;
+  width: 31%;
+}
+@media screen and (min-width: 768px) {
+  .arrow {
+    width: 7.543vw;
+  }
 }
 
 .leftArrow-leftSide {
@@ -260,220 +305,436 @@ $animation-title-duration: 1s;
 }
 
 .arrowMask {
-  background-color: #eee;
-  position: absolute;
-  z-index: 3;
-  top: 0%;
-  height: 100%;
-  width: 150%;
-  &-leftSide {
-    right: 50%;
-  }
-  &-rightSide {
-    left: 50%;
-  }
+  display: none;
 }
 
-.leftArrowDiv {
-  position: absolute;
-  top: 25%;
-
-  &-leftSide {
-    left: 10%;
+@media screen and (min-width: 768px) {
+  .arrowMask {
+    background-color: #eee;
+    position: absolute;
     z-index: 3;
-
-    &-animation {
-      transform: translateX(382%);
-      animation: leftArrowDiv-leftSide-animation $animation-duration;
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
+    top: 0%;
+    height: 100%;
+    width: 150%;
+    &-leftSide {
+      right: 50%;
     }
-
-    &-animTitle {
-      animation: leftArrowDiv-leftSide-animTitle $animation-title-duration;
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
-    }
-    
-    &-Title {
-      transform: translateX(356%) scale(50%);
-      top: 0%;
-    }
-  }
-
-  &-rightSide {
-    right: 22.122%;
-    z-index: 1;
-
-    &-animation {
-      transform: translateX(-178%);
-      animation: leftArrowDiv-rightSide-animation $animation-duration;
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
-    }
-    
-    &-animTitle {
-      animation: leftArrowDiv-rightSide-animTitle $animation-title-duration;
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
-    }
-    
-    &-Title {
-      transform: translateX(-400%) scale(50%);
-      top: 0%;
+    &-rightSide {
+      left: 50%;
     }
   }
 }
 
-.rightArrowDiv {
-  position: absolute;
-  top: 25%;
-  &-leftSide {
-    left: 22.122%;
+@media screen and (max-width: 767px) {
+  .leftArrowDiv {
+    position: absolute;
+    left: 20%;
+
+    &-leftSide {
+      z-index: 3;
+      top: 45%;
+
+      &-animation {
+        transform: translateX(382%);
+        animation: leftArrowDiv-leftSide-animation $animation-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-animTitle {
+        animation: leftArrowDiv-leftSide-animTitle $animation-title-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-Title {
+        transform: translateX(356%) scale(50%);
+        top: 0%;
+      }
+    }
+
+    &-rightSide {
+      top: 72%;
+      z-index: 1;
+
+      &-animation {
+        transform: translateX(-178%);
+        animation: leftArrowDiv-rightSide-animation $animation-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-animTitle {
+        animation: leftArrowDiv-rightSide-animTitle $animation-title-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-Title {
+        transform: translateX(-400%) scale(50%);
+        top: 0%;
+      }
+    }
+  }
+
+  .rightArrowDiv {
+    position: absolute;
+    left: 56%;
+    width: 77%;
+    &-leftSide {
+      top: 45%;
+      z-index: 1;
+
+      &-animation {
+        transform: translateX(178%);
+        animation: rightArrowDiv-leftSide-animation $animation-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-animTitle {
+        animation: rightArrowDiv-leftSide-animTitle $animation-title-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-Title {
+        transform: translateX(400%) scale(50%);
+        top: 0%;
+      }
+    }
+    &-rightSide {
+      top: 72%;
+      z-index: 3;
+      &-animation {
+        transform: translateX(-382%);
+        animation: rightArrowDiv-rightSide-animation $animation-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-animTitle {
+        animation: rightArrowDiv-rightSide-animTitle $animation-title-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+      &-Title {
+        transform: translateX(-356%) scale(50%);
+        top: 0%;
+      }
+    }
+  }
+
+  .activity {
+    position: absolute;
     z-index: 1;
+    top: 30%;
+    height: 50%;
+    width: 155%;
 
-    &-animation {
-      transform: translateX(178%);
-      animation: rightArrowDiv-leftSide-animation $animation-duration;
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
-    }
-
-    &-animTitle {
-      animation: rightArrowDiv-leftSide-animTitle $animation-title-duration;
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
-    }
-    
-    &-Title {
-      transform: translateX(400%)  scale(50%);
-      top: 0%;
-    }
-  }
-  &-rightSide {
-    right: 10%;
-    z-index: 3;
-    &-animation {
-      transform: translateX(-382%);
-      animation: rightArrowDiv-rightSide-animation $animation-duration;
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
-    }
-    
-    &-animTitle {
-      animation: rightArrowDiv-rightSide-animTitle $animation-title-duration;
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
-    }
-    &-Title {
-      transform: translateX(-356%)  scale(50%);
-      top: 0%;
-    }
-  }
-}
-
-.activity {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  top: 25%;
-  height: 50%;
-  width: 155%;
-
-  &Hover{
+    &Hover {
       transform: scale(100%);
       animation: activityHover 0.7s ease-in-out;
+    }
+
+    &-leftSide {
+      left: -28%;
+      &-animTitle {
+        animation: activity-leftSide-animTitle $animation-title-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+      &-Title {
+        transform: scale(2.3) translateX(-32%);
+      }
+    }
+
+    &-rightSide {
+      left: 27%;
+      &-animTitle {
+        animation: activity-rightSide-animTitle $animation-title-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+      &-Title {
+        transform: scale(2.3) translateX(32%);
+      }
+    }
+
+    span {
+      text-align: center;
+      font-family: "Bebas-Regular";
+      font-size: 130%;
+      user-select: none;
+    }
   }
 
-  &-leftSide {
-    right: 0%;
-    margin-right: 50%;
-
-    &-animTitle
-    {
-      animation: activity-leftSide-animTitle $animation-title-duration;
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
-    }
-    &-Title
-    {
-      transform: scale(2.3) translateX(-32%);
-    }
-  }
-
-  &-rightSide {
-    left: 0%;
-    margin-left: 50%;
-    
-    &-animTitle
-    {
-      animation: activity-rightSide-animTitle $animation-title-duration;
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
-    }
-    &-Title
-    {
-      transform: scale(2.3) translateX(32%);
-    }
-  }
-
-  span {
-    text-align: center;
-    font-family: "Bebas-Regular";
-    font-size: 1.5vw;
+  .activityDescription {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: bottom;
     user-select: none;
+    top: 110%;
+    height: 200%;
+    width: 205%;
+    span {
+      display: block;
+      position: relative;
+      left: 0.8vw;
+      font-size: 2.8vw;
+      width: 95%;
+      font-weight: 600;
+      &::before {
+        position: absolute;
+        content: "▸";
+        color: #93c9e2;
+        font-size: 3.6vw;
+        top: -0.3em;
+        left: -1.1em;
+      }
+    }
+
+    &-leftSide {
+      right: -73%;
+
+      &-animation {
+        transform: opacity(0%);
+        animation: activityDescription-leftSide-animation $animation-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+    }
+    &-rightSide {
+      left: 15%;
+
+      &-animation {
+        transform: opacity(0%);
+        animation: activityDescription-leftSide-animation $animation-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+    }
+  }
+
+  .homeButton {
+    display: none;
   }
 }
 
-.activityDescription {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: bottom;
-  user-select: none;
-  top: 110%;
-  height: 200%;
-  width: 205%;
-  span {
-    display: block;
-    position: relative;
-    left:0.8vw;
-    font-size: 0.8vw;
-    width: 95%;
-    font-weight: 600;
-    &::before{
+@media screen and (min-width: 768px) {
+  .leftArrowDiv {
+    position: absolute;
+    top: 25%;
+
+    &-leftSide {
+      left: 10%;
+      z-index: 3;
+
+      &-animation {
+        transform: translateX(382%);
+        animation: leftArrowDiv-leftSide-animation $animation-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-animTitle {
+        animation: leftArrowDiv-leftSide-animTitle $animation-title-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-Title {
+        transform: translateX(356%) scale(50%);
+        top: 0%;
+      }
+    }
+
+    &-rightSide {
+      right: 22.122%;
+      z-index: 1;
+
+      &-animation {
+        transform: translateX(-178%);
+        animation: leftArrowDiv-rightSide-animation $animation-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-animTitle {
+        animation: leftArrowDiv-rightSide-animTitle $animation-title-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-Title {
+        transform: translateX(-400%) scale(50%);
+        top: 0%;
+      }
+    }
+  }
+
+  .rightArrowDiv {
+    position: absolute;
+    top: 25%;
+    &-leftSide {
+      left: 22.122%;
+      z-index: 1;
+
+      &-animation {
+        transform: translateX(178%);
+        animation: rightArrowDiv-leftSide-animation $animation-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-animTitle {
+        animation: rightArrowDiv-leftSide-animTitle $animation-title-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-Title {
+        transform: translateX(400%) scale(50%);
+        top: 0%;
+      }
+    }
+    &-rightSide {
+      right: 10%;
+      z-index: 3;
+      &-animation {
+        transform: translateX(-382%);
+        animation: rightArrowDiv-rightSide-animation $animation-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+
+      &-animTitle {
+        animation: rightArrowDiv-rightSide-animTitle $animation-title-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+      &-Title {
+        transform: translateX(-356%) scale(50%);
+        top: 0%;
+      }
+    }
+  }
+
+  .activity {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    top: 25%;
+    height: 50%;
+    width: 155%;
+
+    &Hover {
+      transform: scale(100%);
+      animation: activityHover 0.7s ease-in-out;
+    }
+
+    &-leftSide {
+      right: 0%;
+      margin-right: 50%;
+
+      &-animTitle {
+        animation: activity-leftSide-animTitle $animation-title-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+      &-Title {
+        transform: scale(2.3) translateX(-32%);
+      }
+    }
+
+    &-rightSide {
+      left: 0%;
+      margin-left: 50%;
+
+      &-animTitle {
+        animation: activity-rightSide-animTitle $animation-title-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+      &-Title {
+        transform: scale(2.3) translateX(32%);
+      }
+    }
+
+    span {
+      text-align: center;
+      font-family: "Bebas-Regular";
+      font-size: 1.6vw;
+      user-select: none;
+    }
+  }
+
+  .activityDescription {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: bottom;
+    user-select: none;
+    top: 110%;
+    height: 200%;
+    width: 205%;
+    span {
+      display: block;
+      position: relative;
+      left: 0.8vw;
+      font-size: 0.8vw;
+      width: 95%;
+      font-weight: 600;
+      &::before {
         position: absolute;
-        content:"▸";
-        color: #93C9E2;
+        content: "▸";
+        color: #93c9e2;
         font-size: 1.6vw;
-        top:-0.45em;
-        left:-0.8em;
+        top: -0.45em;
+        left: -0.8em;
+      }
+    }
+
+    &-leftSide {
+      right: 0%;
+      margin-right: 25%;
+
+      &-animation {
+        transform: opacity(0%);
+        animation: activityDescription-leftSide-animation $animation-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
+    }
+    &-rightSide {
+      left: 0%;
+      margin-left: 25%;
+
+      &-animation {
+        transform: opacity(0%);
+        animation: activityDescription-leftSide-animation $animation-duration;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+      }
     }
   }
 
-  &-leftSide {
-    right: 0%;
-    margin-right: 25%;
+  .homeButton {
+    margin-top: 2em;
+    background-color: #4558a0;
+    border-color: #4558a0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.2vw;
 
-    &-animation {
-      transform: opacity(0%);
-      animation: activityDescription-leftSide-animation $animation-duration;
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
-    }
-  }
-  &-rightSide {
-    left: 0%;
-    margin-left: 25%;
-
-    &-animation {
-      transform: opacity(0%);
-      animation: activityDescription-leftSide-animation $animation-duration;
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
+    &:hover {
+      background-color: #678ac6;
+      border-color: #678ac6;
     }
   }
 }
@@ -500,7 +761,7 @@ $animation-title-duration: 1s;
   }
   &-bottom {
     top: 105%;
-    color: #4558A0;
+    color: #4558a0;
 
     &-animation {
       transform: opacity(0%);
@@ -513,22 +774,16 @@ $animation-title-duration: 1s;
   span {
     display: block;
     font-family: "Bebas-Regular";
-    font-size: 1.5vw;
+    font-size: 120%;
   }
 }
 
-.homeButton
-{
-    margin-top: 2em;
-    background-color: #4558A0;
-    border-color: #4558A0;
-    text-transform: uppercase;
-    font-weight: bold;
-    
-    &:hover{
-        background-color: #678AC6;
-    border-color: #678AC6;    
+@media screen and (min-width: 768px) {
+  .accroche {
+    span {
+      font-size: 1.5vw;
     }
+  }
 }
 
 .fadeOut {
