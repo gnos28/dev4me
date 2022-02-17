@@ -120,6 +120,11 @@ class Home extends React.Component {
         " activityDescription-rightSide-animation";
       accrocheTopClass += " accroche-top-animation";
       accrocheBottomClass += " accroche-bottom-animation";
+
+      leftArrowLeftSideClass += " leftArrowDiv-leftSide-animation";
+      rightArrowLeftSideClass += " rightArrowDiv-leftSide-animation";
+      leftArrowRightSideClass += " leftArrowDiv-rightSide-animation";
+      rightArrowRightSideClass += " rightArrowDiv-rightSide-animation";
     }
     if (this.state.hoverLeft && !this.state.clickLeft) {
       leftArrowDivLeftSideClass += " arrowHover";
